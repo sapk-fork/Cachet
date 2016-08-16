@@ -44,6 +44,7 @@ $factory->define(Incident::class, function ($faker) {
         'message' => $faker->paragraph(),
         'status'  => random_int(1, 4),
         'visible' => 1,
+        'sticked' => 0,
     ];
 });
 

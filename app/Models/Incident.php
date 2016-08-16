@@ -1,5 +1,5 @@
 <?php
-
+//TODO analyze
 /*
  * This file is part of Cachet.
  *
@@ -32,6 +32,7 @@ class Incident extends Model implements HasPresenter
      */
     protected $casts = [
         'visible'      => 'int',
+        'sticked'      => 'int',
         'scheduled_at' => 'date',
         'deleted_at'   => 'date',
     ];
@@ -46,6 +47,7 @@ class Incident extends Model implements HasPresenter
         'name',
         'status',
         'visible',
+        'sticked',
         'message',
         'scheduled_at',
         'created_at',
@@ -62,6 +64,7 @@ class Incident extends Model implements HasPresenter
         'name'         => 'required',
         'status'       => 'required|int',
         'visible'      => 'required|bool',
+        'sticked'      => 'required|bool',
         'message'      => 'required',
     ];
 
@@ -76,6 +79,7 @@ class Incident extends Model implements HasPresenter
         'name',
         'status',
         'visible',
+        'sticked',
     ];
 
     /**
@@ -88,6 +92,7 @@ class Incident extends Model implements HasPresenter
         'name',
         'status',
         'visible',
+        'sticked',
         'message',
     ];
 
@@ -111,6 +116,18 @@ class Incident extends Model implements HasPresenter
     public function scopeVisible(Builder $query)
     {
         return $query->where('visible', 1);
+    }
+
+    /**
+     * Finds all visible sticked.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSticked(Builder $query)
+    {
+        return $query->where('sticked', 1);
     }
 
     /**

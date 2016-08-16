@@ -57,6 +57,9 @@ class StatusPageComposer
         // Scheduled maintenance code.
         $scheduledMaintenance = Incident::scheduled()->orderBy('scheduled_at')->get();
 
+        // Sticked incidents.
+        $stickedIncidents = Incident::sticked()->orderBy('scheduled_at', 'desc')->orderBy('created_at', 'desc')->get();
+
         // Component & Component Group lists.
         $usedComponentGroups = Component::enabled()->where('group_id', '>', 0)->groupBy('group_id')->pluck('group_id');
         $componentGroups = ComponentGroup::whereIn('id', $usedComponentGroups)->orderBy('order')->get();
@@ -65,6 +68,7 @@ class StatusPageComposer
         $view->with($status)
             ->withComponentGroups($componentGroups)
             ->withUngroupedComponents($ungroupedComponents)
+            ->withStickedIncidents($stickedIncidents);
             ->withScheduledMaintenance($scheduledMaintenance);
     }
 }

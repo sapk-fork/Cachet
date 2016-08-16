@@ -1,5 +1,5 @@
 <?php
-
+//TODO analyze
 /*
  * This file is part of Cachet.
  *
@@ -54,6 +54,7 @@ class ReportMaintenanceCommandHandler
             'scheduled_at' => $scheduledAt,
             'status'       => 0,
             'visible'      => 1,
+            'sticked'      => 0,
         ]);
 
         $maintenanceEvent->notify = (bool) $command->notify;

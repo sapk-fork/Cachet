@@ -51,6 +51,13 @@
                             <option value='0' {{ $incident->visible === 0 ? 'selected' : null }}>{{ trans('forms.incidents.logged_in_only') }}</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="incident-stick">{{ trans('forms.incidents.stick_status') }}</label>
+                        <select name="sticked" id="incident-stick" class="form-control">
+                            <option value='1' {{ $incident->sticked === 1 ? 'selected' : null }}>{{ trans('forms.incidents.sticked') }}</option>
+                            <option value='0' {{ $incident->sticked === 0 ? 'selected' : null }}>{{ trans('forms.incidents.not_sticked') }}</option>
+                        </select>
+                    </div>
                     @if($incident->component)
                     <div class="form-group" id='component-status'>
                         <div class="panel panel-default">

@@ -28,6 +28,7 @@ return [
     'incidents' => [
         'none'          => 'No incidents reported',
         'past'          => 'Past Incidents',
+        'sticked'       => 'Sticked Incidents',
         'previous_week' => 'Previous Week',
         'next_week'     => 'Next Week',
         'scheduled'     => 'Scheduled Maintenance',
