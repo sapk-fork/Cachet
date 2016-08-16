@@ -205,6 +205,7 @@ EINCIDENT;
                 'component_id' => 0,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
             ],
             [
                 'name'         => 'Awesome',
@@ -213,6 +214,7 @@ EINCIDENT;
                 'component_id' => 0,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
             ],
             [
                 'name'         => 'Monitoring the fix',
@@ -221,6 +223,7 @@ EINCIDENT;
                 'component_id' => 0,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
             ],
             [
                 'name'         => 'Update',
@@ -229,6 +232,7 @@ EINCIDENT;
                 'component_id' => 0,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
             ],
             [
                 'name'         => 'Test Incident',
@@ -237,6 +241,7 @@ EINCIDENT;
                 'component_id' => 0,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
             ],
             [
                 'name'         => 'Investigating the API',
@@ -245,6 +250,16 @@ EINCIDENT;
                 'component_id' => 1,
                 'scheduled_at' => null,
                 'visible'      => 1,
+                'sticked'      => 0,
+            ],
+            [
+                'name'         => 'Sticked to the top',
+                'message'      => 'Will be forever hanged here.',
+                'status'       => 1,
+                'component_id' => 1,
+                'scheduled_at' => null,
+                'visible'      => 1,
+                'sticked'      => 1,
             ],
         ];
 

@@ -68,6 +68,7 @@ class ReportIncidentCommandHandler
             'name'    => $command->name,
             'status'  => $command->status,
             'visible' => $command->visible,
+            'sticked' => $command->sticked,
         ];
 
         if ($command->template) {

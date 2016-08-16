@@ -107,6 +107,7 @@ class UpdateIncidentCommandHandler
             'status'           => $command->status,
             'message'          => $command->message,
             'visible'          => $command->visible,
+            'sticked'          => $command->sticked,
             'component_id'     => $command->component_id,
             'component_status' => $command->component_status,
             'notify'           => $command->notify,

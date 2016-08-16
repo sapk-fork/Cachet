@@ -11,6 +11,7 @@
 
 namespace CachetHQ\Cachet\Composers;
 
+use CachetHQ\Cachet\Dates\DateFactory;
 use CachetHQ\Cachet\Integrations\Core\System;
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\ComponentGroup;
@@ -57,6 +58,11 @@ class StatusPageComposer
         // Scheduled maintenance code.
         $scheduledMaintenance = Incident::scheduled()->orderBy('scheduled_at')->get();
 
+        // Sticked incidents. (order and group similar to allIncidents)
+        $stickedIncidents = Incident::sticked()->orderBy('scheduled_at', 'desc')->orderBy('created_at', 'desc')->get()->groupBy(function (Incident $incident) {
+            return app(DateFactory::class)->make($incident->is_scheduled ? $incident->scheduled_at : $incident->created_at)->toDateString();
+        });
+
         // Component & Component Group lists.
         $usedComponentGroups = Component::enabled()->where('group_id', '>', 0)->groupBy('group_id')->pluck('group_id');
         $componentGroups = ComponentGroup::whereIn('id', $usedComponentGroups)->orderBy('order')->get();
@@ -65,6 +71,7 @@ class StatusPageComposer
         $view->with($status)
             ->withComponentGroups($componentGroups)
             ->withUngroupedComponents($ungroupedComponents)
+            ->withStickedIncidents($stickedIncidents);
             ->withScheduledMaintenance($scheduledMaintenance);
     }
 }

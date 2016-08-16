@@ -29,6 +29,15 @@
 </div>
 @endif
 
+@if(!$sticked_incidents->isEmpty())
+<div class="section-sticked">
+    <h1>{{ trans('cachet.incidents.sticked') }}</h1>
+    @foreach($sticked_incidents as $date => $incidents)
+    @include('partials.incidents', [compact($date), compact($incidents)])
+    @endforeach
+</div>
+@endif
+
 @if($days_to_show > 0)
 <div class="section-timeline">
     <h1>{{ trans('cachet.incidents.past') }}</h1>

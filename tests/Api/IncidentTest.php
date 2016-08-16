@@ -59,6 +59,7 @@ class IncidentTest extends AbstractApiTestCase
             'message' => 'Lorem ipsum dolor sit amet',
             'status'  => 1,
             'visible' => 1,
+            'sticked' => 0,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -77,6 +78,7 @@ class IncidentTest extends AbstractApiTestCase
             'component_id'     => $component->id,
             'component_status' => 1,
             'visible'          => 1,
+            'sticked'          => 0,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -91,6 +93,7 @@ class IncidentTest extends AbstractApiTestCase
             'name'     => 'Foo',
             'status'   => 1,
             'visible'  => 1,
+            'sticked'  => 0,
             'template' => $template->slug,
             'vars'     => [
                 'name'    => 'Foo',
