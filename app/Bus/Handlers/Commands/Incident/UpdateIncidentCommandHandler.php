@@ -111,7 +111,6 @@ class UpdateIncidentCommandHandler
             'component_id'     => $command->component_id,
             'component_status' => $command->component_status,
             'notify'           => $command->notify,
-            'sticked'          => $command->sticked,
         ];
 
         return array_filter($params, function ($val) {
