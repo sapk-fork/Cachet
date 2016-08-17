@@ -1,5 +1,5 @@
 <?php
-//TODO analyze
+
 /*
  * This file is part of Cachet.
  *
